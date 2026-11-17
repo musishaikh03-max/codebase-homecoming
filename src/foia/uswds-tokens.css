@@ -1,0 +1,84 @@
+/*
+ * USWDS design-kit variables used by foia.css.
+ * The original project loaded these from the private Figma package
+ * @make-kits/uswds-design-kit, which is not on the public npm registry.
+ * Values follow the public USWDS 3 tokens. Spacing, size and radius values are
+ * unitless pixel numbers because foia.css multiplies them by 1px.
+ */
+:root {
+  /* Spacing units (px) */
+  --\!-usa\/spacing\/1px: 1;
+  --\!-usa\/spacing\/2px: 2;
+  --\!-usa\/spacing\/05: 4;
+  --\!-usa\/spacing\/1: 8;
+  --\!-usa\/spacing\/105: 12;
+  --\!-usa\/spacing\/2: 16;
+  --\!-usa\/spacing\/205: 20;
+  --\!-usa\/spacing\/3: 24;
+  --\!-usa\/spacing\/4: 32;
+  --\!-usa\/spacing\/5: 40;
+  --\!-usa\/spacing\/6: 48;
+  --\!-usa\/spacing\/7: 56;
+  --\!-usa\/spacing\/8: 64;
+  --\!-usa\/spacing\/10: 80;
+  --\!-usa\/spacing\/15: 120;
+  --\!-usa\/spacing\/card: 160;
+  --\!-usa\/spacing\/card-lg: 240;
+  --\!-usa\/spacing\/mobile-lg: 480;
+  --\!-usa\/spacing\/tablet-lg: 880;
+  --\!-usa\/radius\/pill: 9999;
+
+  /* Source Sans type scale (px) */
+  --\!-usa\/font-size\/sans\/1: 12;
+  --\!-usa\/font-size\/sans\/2: 13;
+  --\!-usa\/font-size\/sans\/3: 14;
+  --\!-usa\/font-size\/sans\/5: 16;
+  --\!-usa\/font-size\/sans\/7: 18;
+  --\!-usa\/font-size\/sans\/8: 20;
+  --\!-usa\/font-size\/sans\/9: 22;
+  --\!-usa\/font-size\/sans\/10: 24;
+  --\!-usa\/font-size\/sans\/11: 28;
+  --\!-usa\/font-size\/sans\/12: 32;
+
+  /* USWDS system colors */
+  --\!-usa\/color\/white: #ffffff;
+  --\!-usa\/color\/gray-cool\/2: #f7f9fa;
+  --\!-usa\/color\/gray-cool\/3: #f5f6f7;
+  --\!-usa\/color\/gray-cool\/10: #dfe1e2;
+  --\!-usa\/color\/gray-cool\/30: #a9aeb1;
+  --\!-usa\/color\/gray-cool\/60: #565c65;
+  --\!-usa\/color\/blue-warm\/80: #252f3e;
+  --\!-usa\/color\/blue-warm\/90: #13171f;
+  --\!-usa\/color\/violet\/5: #f4f1f9;
+  --\!-usa\/color\/violet\/10: #ebe3f9;
+  --\!-usa\/color\/violet\/20: #d0c3e9;
+  --\!-usa\/color\/violet\/30: #b8a2e3;
+  --\!-usa\/color\/violet\/60: #665190;
+  --\!-usa\/color\/violet\/70: #4c3d69;
+  --\!-usa\/color\/orange\/5: #f6efe9;
+  --\!-usa\/color\/orange\/50: #a86437;
+  --\!-usa\/color\/orange\/70: #524236;
+  --\!-usa\/color\/magenta\/5: #f9f0f2;
+  --\!-usa\/color\/magenta\/20: #f0bbcc;
+  --\!-usa\/color\/magenta\/80: #402731;
+  --\!-usa\/color\/yellow\/30v: #face00;
+  --\!-usa\/color\/cyan\/40v: #00bde3;
+
+  /* USWDS theme tokens */
+  --\#-theme\/color\/primary\/lighter: #d9e8f6;
+  --\#-theme\/color\/primary\/medium: #005ea2;
+  --\#-theme\/color\/primary\/dark: #1a4480;
+  --\#-theme\/color\/error\/lighter: #f4e3db;
+  --\#-theme\/color\/error\/medium: #d54309;
+  --\#-theme\/color\/error\/dark: #b50909;
+  --\#-theme\/color\/success\/lighter: #ecf3ec;
+  --\#-theme\/color\/success\/medium: #00a91c;
+  --\#-theme\/color\/success\/dark: #008817;
+  --\#-theme\/color\/base\/medium: #71767a;
+  --\#-theme\/color\/ink-reverse: #ffffff;
+  --\#-theme\/global\/focus-color: #2491ff;
+  --\#-theme\/font-size\/body\/xs: 15;
+  --\#-theme\/font-size\/body\/sm: 16;
+  --\#-theme\/border-radius\/md: 4;
+  --\#-theme\/border-radius\/lg: 8;
+}
