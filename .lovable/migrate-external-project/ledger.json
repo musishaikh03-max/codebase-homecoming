@@ -5,22 +5,22 @@
       "capability": "code",
       "source": "src/foia/*, src/components/ui/*, routes / and __root",
       "outcome": "migrate",
-      "status": "pending",
-      "next_action": "Copy and typecheck"
+      "status": "verified",
+      "next_action": "Copied; typecheck and tests pass"
     },
     {
       "capability": "styling",
       "source": "src/styles.css + src/foia/foia.css + src/foia/uswds-tokens.css, Source Sans Pro via Google Fonts link",
       "outcome": "migrate",
-      "status": "pending",
-      "next_action": "Check FOIA design renders"
+      "status": "verified",
+      "next_action": "Dashboard, cases and case detail render with FOIA design"
     },
     {
       "capability": "routing",
       "source": "Single TanStack route / with in-app hash routes (#/dashboard, #/case-detail?id=..., #/portal)",
       "outcome": "migrate",
-      "status": "pending",
-      "next_action": "Check hash routes in browser"
+      "status": "verified",
+      "next_action": "#/dashboard, #/cases, #/portal, #/case-detail checked in browser"
     },
     {
       "capability": "schema",
@@ -33,8 +33,8 @@
       "capability": "records",
       "source": "Seed data in src/foia/seed.ts; edits persisted in browser localStorage",
       "outcome": "migrate",
-      "status": "pending",
-      "next_action": "Check seed data loads"
+      "status": "verified",
+      "next_action": "Seed data loads and saved browser data survives reload"
     },
     {
       "capability": "auth identities",
@@ -47,15 +47,15 @@
       "capability": "authorization",
       "source": "Client-side role permissions in src/foia/permissions.ts",
       "outcome": "migrate",
-      "status": "pending",
-      "next_action": "Copy unchanged"
+      "status": "verified",
+      "next_action": "Role permissions copied unchanged"
     },
     {
       "capability": "uploaded file bytes",
       "source": "Upload UI stores file metadata only in localStorage",
       "outcome": "migrate",
-      "status": "pending",
-      "next_action": "Copy unchanged"
+      "status": "verified",
+      "next_action": "Metadata-only upload flow copied unchanged"
     },
     {
       "capability": "external providers",
@@ -82,15 +82,15 @@
       "capability": "site metadata",
       "source": "Root/index head(), robots noindex, favicon.png",
       "outcome": "migrate",
-      "status": "pending",
-      "next_action": "Carry over"
+      "status": "verified",
+      "next_action": "Title, description, noindex, favicon carried over"
     },
     {
       "capability": "project docs",
       "source": "AGENTS.md project rules, roadmap.md, README, north star",
       "outcome": "migrate",
-      "status": "pending",
-      "next_action": "Carry over"
+      "status": "verified",
+      "next_action": "Project rules, roadmap, README, north star carried over"
     },
     {
       "capability": "cutover",
@@ -103,8 +103,8 @@
       "capability": "verification",
       "source": "-",
       "outcome": "verify",
-      "status": "pending",
-      "next_action": "Typecheck, tests, browser checks"
+      "status": "verified",
+      "next_action": "Typecheck, tests, browser checks pass with no page errors"
     }
   ]
 }
