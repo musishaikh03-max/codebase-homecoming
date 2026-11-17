@@ -1,0 +1,110 @@
+{
+  "source": "code-archive (codebase-migration-studio-main.zip, a Lovable TanStack Start project on the same template revision; client-only FOIA case management demo)",
+  "capabilities": [
+    {
+      "capability": "code",
+      "source": "src/foia/*, src/components/ui/*, routes / and __root",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "Copied; typecheck and tests pass"
+    },
+    {
+      "capability": "styling",
+      "source": "src/styles.css + src/foia/foia.css + src/foia/uswds-tokens.css, Source Sans Pro via Google Fonts link",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "Dashboard, cases and case detail render with FOIA design"
+    },
+    {
+      "capability": "routing",
+      "source": "Single TanStack route / with in-app hash routes (#/dashboard, #/case-detail?id=..., #/portal)",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "#/dashboard, #/cases, #/portal, #/case-detail checked in browser"
+    },
+    {
+      "capability": "schema",
+      "source": "None: no database; typed in-memory store",
+      "outcome": "not-present",
+      "status": "verified",
+      "next_action": "None"
+    },
+    {
+      "capability": "records",
+      "source": "Seed data in src/foia/seed.ts; edits persisted in browser localStorage",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "Seed data loads and saved browser data survives reload"
+    },
+    {
+      "capability": "auth identities",
+      "source": "None: demo role switcher (DEMO_USERS), no sign-in",
+      "outcome": "not-present",
+      "status": "verified",
+      "next_action": "None"
+    },
+    {
+      "capability": "authorization",
+      "source": "Client-side role permissions in src/foia/permissions.ts",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "Role permissions copied unchanged"
+    },
+    {
+      "capability": "uploaded file bytes",
+      "source": "Upload UI stores file metadata only in localStorage",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "Metadata-only upload flow copied unchanged"
+    },
+    {
+      "capability": "external providers",
+      "source": "None (no fetch, SDKs or env vars); Google Fonts stylesheet only",
+      "outcome": "not-present",
+      "status": "verified",
+      "next_action": "None"
+    },
+    {
+      "capability": "public endpoints / callbacks / webhooks / schedules",
+      "source": "None",
+      "outcome": "not-present",
+      "status": "verified",
+      "next_action": "None"
+    },
+    {
+      "capability": "secrets",
+      "source": "None required",
+      "outcome": "not-present",
+      "status": "verified",
+      "next_action": "None"
+    },
+    {
+      "capability": "site metadata",
+      "source": "Root/index head(), robots noindex, favicon.png",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "Title, description, noindex, favicon carried over"
+    },
+    {
+      "capability": "project docs",
+      "source": "AGENTS.md project rules, roadmap.md, README, north star",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "Project rules, roadmap, README, north star carried over"
+    },
+    {
+      "capability": "cutover",
+      "source": "Previous Lovable project",
+      "outcome": "user-action",
+      "status": "pending",
+      "next_action": "Publish from this project when ready"
+    },
+    {
+      "capability": "verification",
+      "source": "-",
+      "outcome": "verify",
+      "status": "verified",
+      "next_action": "Typecheck, tests, browser checks pass with no page errors"
+    }
+  ]
+}

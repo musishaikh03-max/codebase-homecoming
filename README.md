@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# FOIA Case Management
 
 This project was built with [Lovable](https://lovable.dev).
 

@@ -1,23 +1,45 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { ClientOnly, createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense } from "react";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+// The FOIA workspace keeps its data in the browser, so it only renders after hydration.
+const FoiaRoot = lazy(() => import("@/foia/FoiaRoot"));
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "FOIA Case Management" },
+      {
+        name: "description",
+        content:
+          "Register, track, assign, and manage FOIA requests with clear visibility into cases, deadlines, tasks, and processing stages.",
+      },
+      { property: "og:title", content: "FOIA Case Management" },
+      {
+        property: "og:description",
+        content:
+          "Register, track, assign, and manage FOIA requests with clear visibility into cases, deadlines, tasks, and processing stages.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+function Loading() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background text-muted-foreground">
+      Loading FOIA workspace…
+    </div>
+  );
+}
+
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <ClientOnly fallback={<Loading />}>
+      <Suspense fallback={<Loading />}>
+        <FoiaRoot />
+      </Suspense>
+    </ClientOnly>
   );
 }

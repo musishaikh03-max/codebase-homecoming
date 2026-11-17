@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- The FOIA app lives in `src/foia/` and renders on `/` inside `<ClientOnly>` with a lazy import, because its store reads browser localStorage and it navigates via `window.location.hash`. Keep it client-only.
+- In-app navigation uses the original hash routes (`#/dashboard`, `#/case-detail?id=...`, `#/portal`, ...) so existing links keep working; do not split them into TanStack routes without migrating every `navigate()` call.
+- App styles live in `src/foia/foia.css`; USWDS kit variables are recreated in `src/foia/uswds-tokens.css` because the original `@make-kits/uswds-design-kit` package is private to Figma. Its legacy `--muted`/`--border` were renamed `--foia-legacy-*` to avoid clashing with shadcn tokens.
+- `tsconfig.json` disables `exactOptionalPropertyTypes`, `noUncheckedIndexedAccess`, and `noPropertyAccessFromIndexSignature` to match the strictness the imported code was written against.
