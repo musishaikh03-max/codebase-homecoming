@@ -266,7 +266,7 @@ interface StoreApi {
   reassignCase(caseId: string, team: string, processor: string, secondary: string, track: string, reason: string, moveTaskIds: string[]): boolean;
   linkRelatedCases(caseId: string, relatedId: string): boolean;
   recordClockEvent(event: Omit<ClockEvent, 'id' | 'authorisedBy' | 'authorisedRole' | 'ruleStatus'>, caseChanges?: Partial<CaseRecord>, options?: { draftExtension?: boolean; awaitRequesterTask?: boolean }): void;
-  createRfd(rfd: Omit<RFD, 'id' | 'status' | 'returnedDocIds' | 'evidence'>): RFD;
+  createRfd(rfd: Omit<RFD, 'id' | 'status' | 'returnedDocIds' | 'evidence'>, trackingTask?: Omit<Task, 'id' | 'createdAt' | 'caseId' | 'linkedRef'>): RFD;
   updateRfd(id: string, changes: Partial<RFD>, action: string, reason?: string): boolean;
   returnRfd(id: string, noRecords: boolean, evidence: RFD['evidence'], files: Array<{ name: string; sizeKb: number; mime: string }>, statement?: string): boolean;
   completeSearch(caseId: string): boolean;
@@ -1053,7 +1053,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         audit: [audit({ caseId: event.caseId, action: event.kind, detail: `${event.reason} Effective date: ${event.effectiveDate}. Before: ${JSON.stringify(current?.clock)}. After: ${JSON.stringify(adjustedChanges)}.`, reason: event.reason }), ...state.audit],
       });
     },
-    createRfd(input) {
+    createRfd(input, trackingTask) {
       const next: RFD = {
         ...input,
         id: `rfd-${Date.now()}`,
@@ -1061,7 +1061,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         returnedDocIds: [],
         evidence: { locationsSearched: '', systems: '', timeSpentHours: 0, searchedBy: '', notes: '' },
       };
-      replace({ ...state, rfds: [next, ...state.rfds], audit: [audit({ caseId: input.caseId, action: 'RFD created', detail: `Draft RFD created for ${input.office}.` }), ...state.audit] });
+      const task: Task[] = trackingTask ? [{ ...trackingTask, id: `task-${Date.now()}-rfd`, caseId: input.caseId, createdAt: new Date().toISOString(), linkedRef: next.id }] : [];
+      replace({ ...state, rfds: [next, ...state.rfds], tasks: [...task, ...state.tasks], audit: [audit({ caseId: input.caseId, action: 'RFD created', detail: `Draft RFD created for ${input.office}.${task.length ? ' Tracking task added.' : ''}` }), ...state.audit] });
       return next;
     },
     updateRfd(id, changes, action, reason = '') {

@@ -375,6 +375,8 @@ export interface CaseRecord {
   possibleDuplicateOfIds?: string[];
   /** WF-01: conditional routing considerations recorded at intake (policy decisions remain open). */
   intakeRoutingFlags?: string[];
+  /** Records search plan recorded in the Records & Documents workspace. */
+  searchPlan?: SearchPlan;
 }
 
 export const INTAKE_ROUTING_FLAG = {
@@ -394,6 +396,27 @@ export interface Task {
   createdAt: string;
   completedAt?: string;
   linkedRef?: string;
+  /** Optional planning fields (added for the Processing workspace; older tasks may not have them). */
+  priority?: TaskPriority;
+  description?: string;
+  dependsOn?: string[];
+  /** Case workspace tab the task relates to, e.g. "Records & Documents". */
+  workspace?: string;
+}
+
+export const TASK_PRIORITY = ['High', 'Medium', 'Low'] as const;
+export type TaskPriority = (typeof TASK_PRIORITY)[number];
+
+export interface SearchPlan {
+  offices: string[];
+  systems: string;
+  searchTerms: string;
+  dateRangeStart: string;
+  dateRangeEnd: string;
+  notes: string;
+  status: 'Draft' | 'Finalised';
+  updatedAt: string;
+  updatedBy: string;
 }
 
 export interface Document {
